@@ -72,7 +72,10 @@ class PathologyTestFormatController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pathology-test-format.edit',[
+            'tests' => Test::all(),
+            'test_format' => PathologyTestFormat::find($id)
+        ]);
     }
 
     /**
@@ -84,7 +87,16 @@ class PathologyTestFormatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'test_id'     => 'required',
+            'test_format' => 'required'
+        ]);
+
+        $test_format = PathologyTestFormat::find($id);
+        $test_format->update($request->all());
+
+        Toastr::success('Test format info successfully Updated', 'Update');
+        return redirect()->route('admin.test-format.index');
     }
 
     /**

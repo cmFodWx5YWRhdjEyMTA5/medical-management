@@ -1,6 +1,6 @@
 @extends('master.app')
 
-@section('title',"Add Test Format")
+@section('title',"Edit Test Format")
 
 @push('css')
   <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/select2.min.css')}}">
@@ -14,15 +14,15 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-7">
-                        <h4 class="page-title">Add Test Format</h4>
+                        <h4 class="page-title">Edit Test Format</h4>
                     </div>
                     <div class="col-sm-5 col-6 text-right">
                         <a href="{{route('admin.test-format.index')}}" class="btn btn-info btn-rounded"><i class="fa fa-arrow-left"></i> Back</a>
                     </div>
                 </div>
-
-                <form action="{{route('admin.test-format.store')}}" method="post">
-                	@csrf
+                <form action="{{route('admin.test-format.update', $test_format->id)}}" method="post">
+                    @csrf
+                    @method('put')
                 	  
                     <div class="card-box">
                         <div class="row">
@@ -35,7 +35,9 @@
                                         <option value="">-- Select Test --</option>
 
                                         @foreach ($tests as $test)
-                                            <option value="{{ $test->id }}">{{ $test->name }}</option>
+                                            <option {{ ($test->id == $test_format->test_id) ? 'selected' : '' }} value="{{ $test->id }}">
+                                                {{ $test->name }}
+                                            </option>
                                         @endforeach
 
                                     </select>
@@ -49,7 +51,7 @@
 
                             	<div class="form-group">
                                     <label>Test Format *</label>
-                                    <textarea name="test_format" id="editor1" class="form-control" rows="10"></textarea>
+                                    <textarea name="test_format" id="editor1" class="form-control" rows="10">{{ $test_format->test_format }}</textarea>
                                     @if($errors->has('test_format'))
                                         <span style="color:red">{{$errors->first('test_format')}}</span>
                                     @endif
@@ -58,7 +60,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button class="btn btn-primary submit-btn" type="submit">SAVE FORMAT</button>
+                                <button class="btn btn-primary submit-btn" type="submit">UPDATE FORMAT</button>
                             </div>
 
                         </div>

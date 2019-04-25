@@ -51,9 +51,10 @@
                   <tr>
                      <td>{{ $key + 1 }}</td>
                      <td>{{ $test_format->test->name }}</td>
-                     <td class="text-justify">{{ $test_format->test_format }}</td>
+                     <td class="text-justify">{!! $test_format->test_format !!}</td>
                     <td>
-                      <a href="{{route('admin.test-format.edit',$test_format->id)}}" class="btn btn-primary btn-sm">Edit</a>
+
+                      <a href="{{route('admin.test-format.edit', $test_format->id)}}" class="btn btn-primary btn-sm">Edit</a>
 
                       <button type="submit" onclick="deletetest({{$test_format->id}})" class="btn btn-danger btn-sm waves-effect"> Delete</button>
 
