@@ -68,8 +68,8 @@
                         <li class="submenu">
                             <a href="javascript:void(0);"><i class="fa fa-user-md"></i> <span>Test Format</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a href="{{route('admin.doctor.create')}}"><i class="fa fa-plus"></i>  Add Test Format</a></li>
-                                <li><a href="{{route('admin.doctor.index')}}"><i class="fa fa-eye"></i> Manage Test Format</a></li>
+                                <li><a href="{{route('admin.test-format.create')}}"><i class="fa fa-plus"></i>  Add Test Format</a></li>
+                                <li><a href="{{route('admin.test-format.index')}}"><i class="fa fa-eye"></i> Manage Test Format</a></li>
                             </ul>
                         </li> 
                         <li class="submenu">
