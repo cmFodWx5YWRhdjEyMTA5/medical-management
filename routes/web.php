@@ -30,6 +30,11 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin', 'middleware
 	Route::resource('department','DepertmentController');
 	Route::resource('test-format', 'PathologyTestFormatController')->except(['show']);
 	Route::resource('appointment-purpose', 'AppointmentPurposeController')->except(['show']);
+	Route::resource('outdoor-appointment', 'OutdoorAppointmentController');
+
+	// doctor ajax routes
+	Route::post('doctor/fee', 'OutdoorAppointmentController@doctorFee')->name('doctor-fee');
+	Route::post('doctor/available-days', 'OutdoorAppointmentController@doctorAvailableDay')->name('doctor-available-day');
 
 	Route::post('changedate/{id}','DocinfochangeController@updatedates')->name('change.date');
 	Route::post('changeinfo/{id}','DocinfochangeController@updateinfo')->name('info.change');

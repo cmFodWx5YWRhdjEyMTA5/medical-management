@@ -76,7 +76,7 @@
 
                               <div class="form-group">
                                         <span>Department details *</span><br>
-                                         <textarea name="details" rows="3"  cols="113"> </textarea>
+                                         <textarea name="details" class="form-control" rows="3"> </textarea>
                                   </div>
 
                                    @if($errors->has('details'))
@@ -137,14 +137,7 @@
                             </div>
                              
                        </div>
-                    </div>
-
-
-
-                   
-                  
-                 
-                       
+                    </div> 
 
                     
                     <div class="text-center m-t-20">
