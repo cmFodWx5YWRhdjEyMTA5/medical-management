@@ -24,19 +24,27 @@
                     </ul> 
                 </li>
                 <li class="submenu">
-                            <a href="javascript:void(0);"><i class="fa fa-user-md"></i> <span>Departments</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">                         
-                                <li><a href="{{route('admin.department.create')}}"><i class="fa fa-plus"></i> Add Departments</a></li>
-                                <li><a href="{{route('admin.department.index')}}"><i class="fa fa-eye"></i> All Department</a></li>
-                            </ul>
-                        </li> 
+                    <a href="javascript:void(0);"><i class="fa fa-user-md"></i> <span>Departments</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">                         
+                        <li><a href="{{route('admin.department.create')}}"><i class="fa fa-plus"></i> Add Departments</a></li>
+                        <li><a href="{{route('admin.department.index')}}"><i class="fa fa-eye"></i> All Department</a></li>
+                    </ul>
+                </li> 
 
                 <li class="">
-
                     <a href="#"><i class="fa fa-user-md"></i> <span>Test</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{route('admin.test.create')}}"><i class="fa fa-plus"></i> Add Test</a></li>
                         <li><a href="{{route('admin.test.index')}}"><i class="fa fa-eye"></i> All Test</a></li>
+                    </ul> 
+                </li>
+
+
+                <li class="">
+                    <a href="#"><i class="fa fa-user-md"></i> <span>Appointment Purpose</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{route('admin.appointment-purpose.create')}}"><i class="fa fa-plus"></i> Add Purpose</a></li>
+                        <li><a href="{{route('admin.appointment-purpose.index')}}"><i class="fa fa-eye"></i> All Purpose</a></li>
                     </ul> 
                 </li>
 
