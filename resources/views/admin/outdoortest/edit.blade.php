@@ -161,12 +161,14 @@
                 </div>
 
                 <div class="table-responsive mt-2">
-                    <table class="table table-bordered" id="show-tests">
-                        <tr id="table-head">
-                            <th>Test Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
+                    <table class="table" id="show-tests">
+                        <thead>
+                            <tr id="table-head">
+                                <th>Test Name</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
                         @foreach ($patient->outdoortests as $outdoortest)
                             <tr id="test_row_{{ $outdoortest->test_id }}">

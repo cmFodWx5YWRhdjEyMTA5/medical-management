@@ -41,7 +41,7 @@
 
 
                 <li class="">
-                    <a href="#"><i class="fa fa-user-md"></i> <span>Appointment Purpose</span> <span class="menu-arrow"></span></a>
+                    <a href="#"><i class="fa fa-user-md"></i> <span>Appointment <br> Purpose</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{route('admin.appointment-purpose.create')}}"><i class="fa fa-plus"></i> Add Purpose</a></li>
                         <li><a href="{{route('admin.appointment-purpose.index')}}"><i class="fa fa-eye"></i> All Purpose</a></li>
