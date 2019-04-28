@@ -93,12 +93,14 @@
                                             <tr>
                                                 <th>Test Name</th>
                                                 <th>Price</th>
+                                                <th>Department</th>
                                             </tr>
 
                                             @foreach ($patient->outdoortests as $outdoortest)
                                                 <tr>
                                                     <td>{{ $outdoortest->test->name }}</td>
                                                     <td>{{ $outdoortest->test->price }}</td>
+                                                    <td>{{ $outdoortest->department }}</td>
                                                 </tr>
                                             @endforeach
                                         </table>

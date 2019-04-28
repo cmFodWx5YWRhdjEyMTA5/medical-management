@@ -18,7 +18,8 @@ class OutdoorTestController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index() 
+    {
         return view('admin.outdoortest.index', [
             'patients' => Patient::all()
         ]);
@@ -29,7 +30,8 @@ class OutdoorTestController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create() 
+    {
 
         $tests = Test::all();
 
@@ -45,8 +47,8 @@ class OutdoorTestController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-
+    public function store(Request $request) 
+    {
         $this->validateTestData($request);
 
         $formData = $request->all();
@@ -55,11 +57,12 @@ class OutdoorTestController extends Controller {
         $patient = Patient::create($formData);
 
         if (is_array($request->test_id) && !empty( $request->test_id)) {
-            foreach ($request->test_id as $value) {
+            foreach ($request->test_id as $key => $value) {
                 OutdoorTest::create([
                     'user_id'    => Auth::id(),
                     'test_id'    => $value,
                     'patient_id' => $patient->id,
+                    'department' => $request->department[$key],
                     'serial_no'  => $request->serial_no
                 ]);
             }
@@ -137,15 +140,20 @@ class OutdoorTestController extends Controller {
         $patient = Patient::find($id);
         $patient->update($formData);
 
+        $i = 0;
+
         if (is_array($request->test_id) && !empty($request->test_id)) {
-            foreach ($request->test_id as $value) {
+            foreach ($request->test_id as $key => $value) {
                 $ifExist = OutdoorTest::where('patient_id', $id)->where('test_id', $value)->first();
                 if (!$ifExist) {
                     OutdoorTest::create([
                         'user_id'    => Auth::id(),
                         'test_id'    => $value,
+                        'department' => $request->department[$i],
                         'patient_id' => $patient->id
                     ]);
+
+                    $i++;
                 }
             }
         }
@@ -187,6 +195,7 @@ class OutdoorTestController extends Controller {
             $output .= '<input type="hidden" name="test_id[]" value="'.$request->test_id.'" />';
             $output .= '<td>'.$test->name.'</td>';
             $output .= '<td class="test-price">'.$test->price.'</td>';
+            $output .= '<td>'.$request->department.'<input type="hidden" name="department[]" value="'.$request->department.'" /></td>';
             $output .= '<td width="10%">
                         <button type="button" class="btn-remove btn btn-sm btn-danger" data-testid="'.$request->test_id.'">
                             Delete

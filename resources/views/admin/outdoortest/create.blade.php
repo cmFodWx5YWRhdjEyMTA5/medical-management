@@ -152,10 +152,11 @@
 
                 <h3 class="card-title">Test Informations</h3>
                 <div class="row"> 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
 
                         <label>Search Test*</label> 
                         <select class="form-control" id="test_id">
+                            <option value="">-- Select Test --</option>
                             @foreach($tests as $test)
                             <option value="{{ $test->id }}">  {{ $test->name }}</option>
                             @endforeach
@@ -163,6 +164,20 @@
 
                         @if ($errors->has('test_id'))
                             <p style="color:red"> The test selection is required. </p>
+                        @endif
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <label>Department *</label> 
+                        <select class="form-control" id="department">
+                            <option value="">-- Select Department --</option>
+                            <option value="Pathology">Pathology</option>
+                            <option value="Radiology">Radiology</option>
+                        </select>
+
+                        @if ($errors->has('department'))
+                            <p style="color:red"> {{$errors->first('department')}} </p>
                         @endif
 
                     </div>
@@ -182,6 +197,7 @@
                             <tr id="table-head" style="display: none">
                                 <th>Test Name</th>
                                 <th>Price</th>
+                                <th>Department</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -229,7 +245,7 @@
            $.ajax({
                url: "{{ route('admin.test-info') }}",
                method: "POST",
-               data: {_token:_token, test_id:test_id},
+               data: {_token:_token, test_id:test_id, department:$('#department').val()},
                dataType: "json",
                success: function (response) {
                     $('#table-head').show();

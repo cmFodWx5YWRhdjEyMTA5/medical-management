@@ -18,6 +18,7 @@ class CreateOutdoorTestTable extends Migration
             $table->integer('user_id');
             $table->integer('test_id');
             $table->integer('patient_id');
+            $table->string('department');
             $table->integer('serial_no')->nullable(); 
             
             $table->timestamps();
