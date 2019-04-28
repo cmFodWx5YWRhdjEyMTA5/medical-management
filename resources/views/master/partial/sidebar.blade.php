@@ -84,7 +84,7 @@
                             <a href="javascript:void(0);"><i class="fa fa-user-md"></i> <span>Test Request</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">                         
                                 <li><a href="{{route('admin.department.create')}}"><i class="fa fa-plus"></i> Indoor Test Request</a></li>
-                                <li><a href="{{route('admin.department.index')}}"><i class="fa fa-eye"></i> Outdoor Test Request</a></li>
+                                <li><a href="{{route('admin.pathology-outdoor-test-request')}}"><i class="fa fa-eye"></i> Outdoor Test Request</a></li>
                             </ul>
                         </li>  
                     </ul>
